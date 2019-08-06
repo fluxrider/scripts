@@ -1,3 +1,13 @@
+'''
+mkdir -p out
+for f in /pics/*.jpg; do
+  filename=$(basename "$f")
+  name="${filename%.*}"
+  ext="${filename##*.}"
+  python face_crop.py "$f" "out/$name.{}.$ext"
+done
+'''
+
 import os
 import sys
 import cv2
