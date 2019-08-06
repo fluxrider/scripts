@@ -24,8 +24,8 @@ margin = float(sys.argv[3]) # e.g. .3
 img = cv2.imread(file_in)
 
 # find the faces (try with a different scaleFactor if nothing is found)
+classifier = cv2.CascadeClassifier('/usr/share/opencv4/haarcascades/haarcascade_frontalface_alt.xml')
 for scaleFactor in (1.1, 1.01):
-  classifier = cv2.CascadeClassifier('/usr/share/opencv4/haarcascades/haarcascade_frontalface_alt.xml')
   faces = classifier.detectMultiScale(img, scaleFactor, 3)
   if len(faces) > 0: break
 if len(faces) == 0:
